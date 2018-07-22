@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63B172512102426D00EB976B /* AddCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172502102426D00EB976B /* AddCardTests.swift */; };
+		63B172552104AA1F00EB976B /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172532104AA1F00EB976B /* NewCardViewController.swift */; };
+		63B172592104AC5800EB976B /* NewCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172582104AC5800EB976B /* NewCardTests.swift */; };
 		63BD233D20FE5AFD0073FD3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */; };
-		63BD233F20FE5AFD0073FD3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD233E20FE5AFD0073FD3A /* ViewController.swift */; };
 		63BD234220FE5AFD0073FD3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234020FE5AFD0073FD3A /* Main.storyboard */; };
 		63BD234420FE5AFE0073FD3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234320FE5AFE0073FD3A /* Assets.xcassets */; };
 		63BD234720FE5AFE0073FD3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234520FE5AFE0073FD3A /* LaunchScreen.storyboard */; };
-		63BD235D20FE5AFE0073FD3A /* FlashcardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD235C20FE5AFE0073FD3A /* FlashcardUITests.swift */; };
 		63BD236B20FE5B630073FD3A /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD236A20FE5B630073FD3A /* CardTests.swift */; };
 		63BD236E20FE5CB50073FD3A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD236D20FE5CB50073FD3A /* Card.swift */; };
 		63BD237020FE5ED30073FD3A /* CardRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD236F20FE5ED30073FD3A /* CardRepositoryTests.swift */; };
@@ -37,9 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63B172502102426D00EB976B /* AddCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardTests.swift; sourceTree = "<group>"; };
+		63B172532104AA1F00EB976B /* NewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewController.swift; sourceTree = "<group>"; };
+		63B172582104AC5800EB976B /* NewCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardTests.swift; sourceTree = "<group>"; };
 		63BD233920FE5AFD0073FD3A /* Flashcard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63BD233E20FE5AFD0073FD3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		63BD234120FE5AFD0073FD3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63BD234320FE5AFE0073FD3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63BD234620FE5AFE0073FD3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,7 +50,6 @@
 		63BD234D20FE5AFE0073FD3A /* FlashcardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BD235320FE5AFE0073FD3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63BD235820FE5AFE0073FD3A /* FlashcardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		63BD235C20FE5AFE0073FD3A /* FlashcardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardUITests.swift; sourceTree = "<group>"; };
 		63BD235E20FE5AFE0073FD3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63BD236A20FE5B630073FD3A /* CardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTests.swift; sourceTree = "<group>"; };
 		63BD236D20FE5CB50073FD3A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -80,6 +82,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63B172522104AA0800EB976B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				63B172532104AA1F00EB976B /* NewCardViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		63B172572104AC4100EB976B /* ControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				63B172582104AC5800EB976B /* NewCardTests.swift */,
+			);
+			path = ControllerTests;
+			sourceTree = "<group>";
+		};
 		63BD233020FE5AFD0073FD3A = {
 			isa = PBXGroup;
 			children = (
@@ -103,9 +121,9 @@
 		63BD233B20FE5AFD0073FD3A /* Flashcard */ = {
 			isa = PBXGroup;
 			children = (
+				63B172522104AA0800EB976B /* ViewControllers */,
 				63BD236C20FE5C9D0073FD3A /* Model */,
 				63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */,
-				63BD233E20FE5AFD0073FD3A /* ViewController.swift */,
 				63BD234020FE5AFD0073FD3A /* Main.storyboard */,
 				63BD234320FE5AFE0073FD3A /* Assets.xcassets */,
 				63BD234520FE5AFE0073FD3A /* LaunchScreen.storyboard */,
@@ -117,6 +135,7 @@
 		63BD235020FE5AFE0073FD3A /* FlashcardTests */ = {
 			isa = PBXGroup;
 			children = (
+				63B172572104AC4100EB976B /* ControllerTests */,
 				63BD235320FE5AFE0073FD3A /* Info.plist */,
 				63BD236A20FE5B630073FD3A /* CardTests.swift */,
 				63BD236F20FE5ED30073FD3A /* CardRepositoryTests.swift */,
@@ -127,8 +146,8 @@
 		63BD235B20FE5AFE0073FD3A /* FlashcardUITests */ = {
 			isa = PBXGroup;
 			children = (
-				63BD235C20FE5AFE0073FD3A /* FlashcardUITests.swift */,
 				63BD235E20FE5AFE0073FD3A /* Info.plist */,
+				63B172502102426D00EB976B /* AddCardTests.swift */,
 			);
 			path = FlashcardUITests;
 			sourceTree = "<group>";
@@ -218,6 +237,7 @@
 					};
 					63BD235720FE5AFE0073FD3A = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = 63BD233820FE5AFD0073FD3A;
 					};
 				};
@@ -274,7 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63BD233F20FE5AFD0073FD3A /* ViewController.swift in Sources */,
+				63B172552104AA1F00EB976B /* NewCardViewController.swift in Sources */,
 				63BD237220FE5F520073FD3A /* CardRepository.swift in Sources */,
 				63BD236E20FE5CB50073FD3A /* Card.swift in Sources */,
 				63BD233D20FE5AFD0073FD3A /* AppDelegate.swift in Sources */,
@@ -286,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BD236B20FE5B630073FD3A /* CardTests.swift in Sources */,
+				63B172592104AC5800EB976B /* NewCardTests.swift in Sources */,
 				63BD237020FE5ED30073FD3A /* CardRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63BD235D20FE5AFE0073FD3A /* FlashcardUITests.swift in Sources */,
+				63B172512102426D00EB976B /* AddCardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = info.geretti.Flashcard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -477,7 +498,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = info.geretti.Flashcard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -528,6 +549,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FlashcardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -537,6 +559,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = info.geretti.FlashcardUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Flashcard;
@@ -547,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FlashcardUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,14 +1,6 @@
-//
-//  FlashcardUITests.swift
-//  FlashcardUITests
-//
-//  Created by David Geretti on 17.07.18.
-//  Copyright © 2018 David Geretti. All rights reserved.
-//
-
 import XCTest
 
-class FlashcardUITests: XCTestCase {
+class AddCardTests: XCTestCase {
         
     override func setUp() {
         super.setUp()
@@ -27,10 +19,4 @@ class FlashcardUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
 }
