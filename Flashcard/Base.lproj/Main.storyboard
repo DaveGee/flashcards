@@ -13,7 +13,7 @@
         <!--New Card View Controller-->
         <scene sceneID="hO6-yD-ra1">
             <objects>
-                <viewController storyboardIdentifier="CardCreatorController" id="6as-Ip-sJd" customClass="NewCardViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewCardViewController" id="6as-Ip-sJd" customClass="NewCardViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z1a-Sb-uv6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="saveCard:" destination="6as-Ip-sJd" eventType="touchUpInside" id="inO-o1-PEa"/>
+                                    <action selector="saveTapped:" destination="6as-Ip-sJd" eventType="touchUpInside" id="zEU-fe-WLp"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SWx-XX-T2V">

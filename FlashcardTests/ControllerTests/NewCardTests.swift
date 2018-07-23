@@ -9,9 +9,13 @@ class NewCardTests: XCTestCase {
         super.setUp()
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        viewController = storyboard.instantiateViewController(withIdentifier: "CardCreatorController") as! NewCardViewController
+        viewController = storyboard.instantiateViewController(withIdentifier: "NewCardViewController") as! NewCardViewController
         UIApplication.shared.keyWindow!.rootViewController = viewController
         
         XCTAssertNotNil(viewController.view);
+    }
+    
+    func test() {
+        XCTAssertTrue(true)
     }
 }

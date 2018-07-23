@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		63B172512102426D00EB976B /* AddCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172502102426D00EB976B /* AddCardTests.swift */; };
-		63B172552104AA1F00EB976B /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172532104AA1F00EB976B /* NewCardViewController.swift */; };
 		63B172592104AC5800EB976B /* NewCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172582104AC5800EB976B /* NewCardTests.swift */; };
+		63B1726021066A0200EB976B /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1725E21066A0200EB976B /* NewCardViewController.swift */; };
 		63BD233D20FE5AFD0073FD3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */; };
 		63BD234220FE5AFD0073FD3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234020FE5AFD0073FD3A /* Main.storyboard */; };
 		63BD234420FE5AFE0073FD3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234320FE5AFE0073FD3A /* Assets.xcassets */; };
@@ -39,8 +39,8 @@
 
 /* Begin PBXFileReference section */
 		63B172502102426D00EB976B /* AddCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardTests.swift; sourceTree = "<group>"; };
-		63B172532104AA1F00EB976B /* NewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewController.swift; sourceTree = "<group>"; };
 		63B172582104AC5800EB976B /* NewCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardTests.swift; sourceTree = "<group>"; };
+		63B1725E21066A0200EB976B /* NewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewController.swift; sourceTree = "<group>"; };
 		63BD233920FE5AFD0073FD3A /* Flashcard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63BD234120FE5AFD0073FD3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		63B172522104AA0800EB976B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				63B172532104AA1F00EB976B /* NewCardViewController.swift */,
+				63B1725E21066A0200EB976B /* NewCardViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -294,8 +294,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63B172552104AA1F00EB976B /* NewCardViewController.swift in Sources */,
 				63BD237220FE5F520073FD3A /* CardRepository.swift in Sources */,
+				63B1726021066A0200EB976B /* NewCardViewController.swift in Sources */,
 				63BD236E20FE5CB50073FD3A /* Card.swift in Sources */,
 				63BD233D20FE5AFD0073FD3A /* AppDelegate.swift in Sources */,
 			);
