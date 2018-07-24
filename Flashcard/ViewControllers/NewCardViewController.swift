@@ -12,11 +12,17 @@ class NewCardViewController: UIViewController {
         self.title = "Add a card"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recto.becomeFirstResponder()
+    }
+    
     func save(card: Card) {
         deck.add(card: card)
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        
+        save(card: Card(recto: recto.text, verso: verso.text))
+        _ = navigationController?.popToRootViewController(animated: true)
     }
 }

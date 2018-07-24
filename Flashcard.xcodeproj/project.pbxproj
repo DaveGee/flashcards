@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6316FF6121074EE10057E845 /* PlayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6316FF6021074EE10057E845 /* PlayTests.swift */; };
 		6388255E21067C03005B2ACA /* DeckManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388255D21067C03005B2ACA /* DeckManager.swift */; };
 		6388256221073014005B2ACA /* DeckManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388256121073014005B2ACA /* DeckManagerTests.swift */; };
+		6388256421074AEA005B2ACA /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388256321074AEA005B2ACA /* PlayViewController.swift */; };
+		6388256621074B6D005B2ACA /* PlayControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388256521074B6D005B2ACA /* PlayControllerTests.swift */; };
 		63B172512102426D00EB976B /* AddCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172502102426D00EB976B /* AddCardTests.swift */; };
-		63B172592104AC5800EB976B /* NewCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172582104AC5800EB976B /* NewCardTests.swift */; };
+		63B172592104AC5800EB976B /* NewCardControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172582104AC5800EB976B /* NewCardControllerTests.swift */; };
 		63B1726021066A0200EB976B /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1725E21066A0200EB976B /* NewCardViewController.swift */; };
 		63BD233D20FE5AFD0073FD3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */; };
 		63BD234220FE5AFD0073FD3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234020FE5AFD0073FD3A /* Main.storyboard */; };
@@ -38,10 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6316FF6021074EE10057E845 /* PlayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTests.swift; sourceTree = "<group>"; };
 		6388255D21067C03005B2ACA /* DeckManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckManager.swift; sourceTree = "<group>"; };
 		6388256121073014005B2ACA /* DeckManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckManagerTests.swift; sourceTree = "<group>"; };
+		6388256321074AEA005B2ACA /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		6388256521074B6D005B2ACA /* PlayControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayControllerTests.swift; sourceTree = "<group>"; };
 		63B172502102426D00EB976B /* AddCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardTests.swift; sourceTree = "<group>"; };
-		63B172582104AC5800EB976B /* NewCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardTests.swift; sourceTree = "<group>"; };
+		63B172582104AC5800EB976B /* NewCardControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardControllerTests.swift; sourceTree = "<group>"; };
 		63B1725E21066A0200EB976B /* NewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewController.swift; sourceTree = "<group>"; };
 		63BD233920FE5AFD0073FD3A /* Flashcard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				63B1725E21066A0200EB976B /* NewCardViewController.swift */,
+				6388256321074AEA005B2ACA /* PlayViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -101,7 +108,8 @@
 		63B172572104AC4100EB976B /* ControllerTests */ = {
 			isa = PBXGroup;
 			children = (
-				63B172582104AC5800EB976B /* NewCardTests.swift */,
+				63B172582104AC5800EB976B /* NewCardControllerTests.swift */,
+				6388256521074B6D005B2ACA /* PlayControllerTests.swift */,
 			);
 			path = ControllerTests;
 			sourceTree = "<group>";
@@ -157,6 +165,7 @@
 			children = (
 				63BD235E20FE5AFE0073FD3A /* Info.plist */,
 				63B172502102426D00EB976B /* AddCardTests.swift */,
+				6316FF6021074EE10057E845 /* PlayTests.swift */,
 			);
 			path = FlashcardUITests;
 			sourceTree = "<group>";
@@ -303,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B1726021066A0200EB976B /* NewCardViewController.swift in Sources */,
+				6388256421074AEA005B2ACA /* PlayViewController.swift in Sources */,
 				6388255E21067C03005B2ACA /* DeckManager.swift in Sources */,
 				63BD236E20FE5CB50073FD3A /* Card.swift in Sources */,
 				63BD233D20FE5AFD0073FD3A /* AppDelegate.swift in Sources */,
@@ -314,7 +324,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				63BD236B20FE5B630073FD3A /* CardTests.swift in Sources */,
-				63B172592104AC5800EB976B /* NewCardTests.swift in Sources */,
+				6388256621074B6D005B2ACA /* PlayControllerTests.swift in Sources */,
+				63B172592104AC5800EB976B /* NewCardControllerTests.swift in Sources */,
 				6388256221073014005B2ACA /* DeckManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63B172512102426D00EB976B /* AddCardTests.swift in Sources */,
+				6316FF6121074EE10057E845 /* PlayTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

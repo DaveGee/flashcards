@@ -75,7 +75,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmf-5j-P8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175.19999999999999" y="32.833583208395808"/>
+            <point key="canvasLocation" x="969" y="33"/>
+        </scene>
+        <!--Play View Controller-->
+        <scene sceneID="TAb-SJ-4cT">
+            <objects>
+                <viewController storyboardIdentifier="PlayViewController" id="R2B-77-cLO" customClass="PlayViewController" customModule="Flashcard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dwU-cC-Owj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldy-hJ-o1N">
+                                <rect key="frame" x="16" y="75" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="cardCounter"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.6588235294" green="0.85490196080000003" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RHS-Xi-JrV"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Eoa-8I-Sri">
+                        <barButtonItem key="rightBarButtonItem" title="Add a card" style="plain" id="coW-J4-4cs">
+                            <color key="tintColor" red="0.27058823529999998" green="0.4823529412" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="6as-Ip-sJd" kind="show" id="tLh-O6-uK7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cardCounterLabel" destination="Ldy-hJ-o1N" id="UcM-QK-qH7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PaK-D2-irK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109.59999999999999" y="32.833583208395808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n9r-El-JGs">
@@ -85,10 +121,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HrM-EB-Cm4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.27058823529999998" green="0.4823529412" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="6as-Ip-sJd" kind="relationship" relationship="rootViewController" id="mnd-Ul-JCJ"/>
+                        <segue destination="R2B-77-cLO" kind="relationship" relationship="rootViewController" id="M42-vq-3vo"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ltl-xX-z2f" userLabel="First Responder" sceneMemberID="firstResponder"/>

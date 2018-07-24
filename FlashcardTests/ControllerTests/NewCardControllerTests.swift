@@ -16,6 +16,10 @@ class NewCardTests: XCTestCase {
         viewController.deck = DeckManager()
     }
     
+    func testTitle() {
+        viewController.title = "Add a card"
+    }
+    
     func testHasDeck() {
         XCTAssertNotNil(viewController.deck)
     }
