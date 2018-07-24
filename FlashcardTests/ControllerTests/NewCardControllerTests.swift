@@ -30,4 +30,15 @@ class NewCardTests: XCTestCase {
         
         XCTAssert(viewController.deck.countCards == 1)
     }
+    
+    func testCreatesTheCardWithTheRightValues() {
+        viewController.recto.text = "recto"
+        viewController.verso.text = "verso"
+        
+        viewController.saveTapped(self)
+        XCTAssert(viewController.deck.countCards == 1)
+        let card = try! viewController.deck.draw()
+        XCTAssert(card.recto == "recto")
+        XCTAssert(card.verso == "verso")
+    }
 }
