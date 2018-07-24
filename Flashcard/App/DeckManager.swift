@@ -7,6 +7,8 @@ enum DeckError: Error {
 class DeckManager {
     private var deck = [Card]()
     
+    static let shared = DeckManager()
+    
     var countCards: Int {
         return deck.count
     }

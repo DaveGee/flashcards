@@ -12,10 +12,18 @@ class NewCardTests: XCTestCase {
         viewController = storyboard.instantiateViewController(withIdentifier: "NewCardViewController") as! NewCardViewController
         UIApplication.shared.keyWindow!.rootViewController = viewController
         
-        XCTAssertNotNil(viewController.view);
+        XCTAssertNotNil(viewController.view)
+        viewController.deck = DeckManager()
     }
     
-    func test() {
-        XCTAssertTrue(true)
+    func testHasDeck() {
+        XCTAssertNotNil(viewController.deck)
+    }
+    
+    func testCanAddNewCard() {
+        let card = Card(recto: "recto", verso: "verso")
+        viewController.save(card: card)
+        
+        XCTAssert(viewController.deck.countCards == 1)
     }
 }

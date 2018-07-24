@@ -45,4 +45,8 @@ class DeckManagerTests: XCTestCase {
         
         XCTAssertNotNil(try manager.draw())
     }
+    
+    func testHasSharedInstance() {
+        XCTAssertNotNil(DeckManager.shared)
+    }
 }
