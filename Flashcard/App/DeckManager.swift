@@ -1,5 +1,3 @@
-import Foundation
-
 enum DeckError: Error {
     case emptyDeck
 }
