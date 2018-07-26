@@ -13,7 +13,7 @@ class PlayControllerTests: XCTestCase {
         UIApplication.shared.keyWindow!.rootViewController = viewController
         
         XCTAssertNotNil(viewController.view)
-        viewController.deck = DeckManager()
+        viewController.deck = MainUseCase()
     }
     
     func testTitle() {

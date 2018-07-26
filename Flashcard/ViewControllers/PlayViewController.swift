@@ -2,7 +2,7 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
-    var deck = DeckManager.shared
+    var deck = MainUseCase.shared
     
     @IBOutlet weak var cardCounterLabel: UILabel!
     

@@ -2,10 +2,10 @@ enum DeckError: Error {
     case emptyDeck
 }
 
-class DeckManager {
+class MainUseCase {
     private var deck = [Card]()
     
-    static var shared = DeckManager()
+    static var shared = MainUseCase()
     
     var countCards: Int {
         return deck.count

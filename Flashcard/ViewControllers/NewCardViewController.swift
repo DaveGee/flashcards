@@ -2,7 +2,7 @@ import UIKit
 
 class NewCardViewController: UIViewController, UITextViewDelegate {
     
-    var deck = DeckManager.shared
+    var deck = MainUseCase.shared
 
     @IBOutlet weak var recto: UITextView!
     @IBOutlet weak var verso: UITextView!
