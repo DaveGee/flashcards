@@ -13,7 +13,7 @@ class PlayControllerTests: XCTestCase {
         UIApplication.shared.keyWindow!.rootViewController = viewController
         
         XCTAssertNotNil(viewController.view)
-        viewController.deck = MainUseCase()
+        viewController.game = MainUseCase()
     }
     
     func testTitle() {
@@ -40,6 +40,6 @@ class PlayControllerTests: XCTestCase {
     }
     
     func addCardToDeck() {
-        viewController.deck.add(card: Card(recto: "recto", verso: "verso"))
+        viewController.game.add(card: Card(recto: "recto", verso: "verso"))
     }
 }

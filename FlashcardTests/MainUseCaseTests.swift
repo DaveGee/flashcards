@@ -8,6 +8,8 @@ class MainUseCaseTests: XCTestCase {
     
     override func setUp() {
         sut = MainUseCase()
+        sut.authProxy = AnonymousAuthStub()
+        
         card = Card(recto: "recto", verso: "verso")
     }
     
@@ -48,5 +50,47 @@ class MainUseCaseTests: XCTestCase {
     
     func testHasSharedInstance() {
         XCTAssertNotNil(MainUseCase.shared)
+    }
+    
+    func testCanAuthAnonymously() {
+        let loginExpectation = expectation(description: "Logged in anonymously")
+        sut.authProxy = AnonymousAuthStub()
+        
+        sut.auth {
+            guard let user = self.sut.user else {
+                XCTFail("User nil")
+                return
+            }
+            XCTAssertTrue(user.isAnonymous)
+            XCTAssert(user.uid == "anonymousUserId")
+            loginExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 0.3, handler: nil)
+    }
+    
+    func testFailedAuth() {
+        let failExpectation = expectation(description: "Failed auth")
+        sut.authProxy = FailAuthStub()
+        
+        sut.auth {
+            XCTAssertNil(self.sut.user)
+            failExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 0.3, handler: nil)
+    }
+}
+
+class AnonymousAuthStub: AuthGateway {
+    func authAnonymously(completion: @escaping (User?) -> Void) {
+        let user = User(uid: "anonymousUserId", isAnonymous: true)
+        completion(user)
+    }
+}
+
+class FailAuthStub: AuthGateway {
+    func authAnonymously(completion: @escaping (User?) -> Void) {
+        completion(nil)
     }
 }

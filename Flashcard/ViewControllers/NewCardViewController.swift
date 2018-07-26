@@ -39,7 +39,7 @@ class NewCardViewController: UIViewController, UITextViewDelegate {
         _ = navigationController?.popToRootViewController(animated: true)
     }
     
-    @objc func keyboardWillShow(notification:NSNotification){
+    @objc func keyboardWillShow(notification: NSNotification){
         var userInfo = notification.userInfo!
         var keyboardFrame: CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
@@ -49,7 +49,7 @@ class NewCardViewController: UIViewController, UITextViewDelegate {
         scrollView.contentInset = contentInset
     }
     
-    @objc func keyboardWillHide(notification:NSNotification){
+    @objc func keyboardWillHide(notification: NSNotification){
         
         let contentInset: UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset

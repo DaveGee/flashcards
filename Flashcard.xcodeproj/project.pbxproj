@@ -16,6 +16,8 @@
 		63909DFE2109E843004812DD /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63909DFD2109E843004812DD /* UserTests.swift */; };
 		63909E002109E894004812DD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63909DFF2109E894004812DD /* User.swift */; };
 		63909E0E210A3A99004812DD /* AuthGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63909E0D210A3A99004812DD /* AuthGateway.swift */; };
+		63909E10210A3F14004812DD /* AuthGatewayFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63909E0F210A3F14004812DD /* AuthGatewayFirebase.swift */; };
+		63909E13210A59A8004812DD /* AuthGatewayFirebaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63909E12210A59A8004812DD /* AuthGatewayFirebaseTests.swift */; };
 		63B172512102426D00EB976B /* AddCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172502102426D00EB976B /* AddCardTests.swift */; };
 		63B172592104AC5800EB976B /* NewCardControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B172582104AC5800EB976B /* NewCardControllerTests.swift */; };
 		63B1726021066A0200EB976B /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1725E21066A0200EB976B /* NewCardViewController.swift */; };
@@ -61,6 +63,8 @@
 		63909DFD2109E843004812DD /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		63909DFF2109E894004812DD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		63909E0D210A3A99004812DD /* AuthGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGateway.swift; sourceTree = "<group>"; };
+		63909E0F210A3F14004812DD /* AuthGatewayFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGatewayFirebase.swift; sourceTree = "<group>"; };
+		63909E12210A59A8004812DD /* AuthGatewayFirebaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthGatewayFirebaseTests.swift; sourceTree = "<group>"; };
 		63B172502102426D00EB976B /* AddCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardTests.swift; sourceTree = "<group>"; };
 		63B172582104AC5800EB976B /* NewCardControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardControllerTests.swift; sourceTree = "<group>"; };
 		63B1725E21066A0200EB976B /* NewCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				63909E0D210A3A99004812DD /* AuthGateway.swift */,
+				63909E0F210A3F14004812DD /* AuthGatewayFirebase.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -144,6 +149,14 @@
 				63909DFD2109E843004812DD /* UserTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		63909E11210A598E004812DD /* FirebaseGateways */ = {
+			isa = PBXGroup;
+			children = (
+				63909E12210A59A8004812DD /* AuthGatewayFirebaseTests.swift */,
+			);
+			path = FirebaseGateways;
 			sourceTree = "<group>";
 		};
 		63B172522104AA0800EB976B /* ViewControllers */ = {
@@ -206,6 +219,7 @@
 		63BD235020FE5AFE0073FD3A /* FlashcardTests */ = {
 			isa = PBXGroup;
 			children = (
+				63909E11210A598E004812DD /* FirebaseGateways */,
 				63909DFC2109E82C004812DD /* Model */,
 				63B172572104AC4100EB976B /* ControllerTests */,
 				63BD235320FE5AFE0073FD3A /* Info.plist */,
@@ -579,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63909E0E210A3A99004812DD /* AuthGateway.swift in Sources */,
+				63909E10210A3F14004812DD /* AuthGatewayFirebase.swift in Sources */,
 				63B1726021066A0200EB976B /* NewCardViewController.swift in Sources */,
 				6388256421074AEA005B2ACA /* PlayViewController.swift in Sources */,
 				6388255E21067C03005B2ACA /* MainUseCase.swift in Sources */,
@@ -597,6 +612,7 @@
 				6388256621074B6D005B2ACA /* PlayControllerTests.swift in Sources */,
 				63B172592104AC5800EB976B /* NewCardControllerTests.swift in Sources */,
 				6388256221073014005B2ACA /* MainUseCaseTests.swift in Sources */,
+				63909E13210A59A8004812DD /* AuthGatewayFirebaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

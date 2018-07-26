@@ -3,9 +3,13 @@ enum DeckError: Error {
 }
 
 class MainUseCase {
-    private var deck = [Card]()
-    
     static var shared = MainUseCase()
+    
+    lazy var authProxy: AuthGateway = AuthGatewayFirebase()
+    
+    private(set) var user: User? = nil
+    
+    private var deck = [Card]()
     
     var countCards: Int {
         return deck.count
@@ -25,5 +29,12 @@ class MainUseCase {
         }
         
         return deck[0]
+    }
+    
+    func auth(completion: @escaping () -> Void) {
+        authProxy.authAnonymously { user in
+            self.user = user
+            completion()
+        }
     }
 }

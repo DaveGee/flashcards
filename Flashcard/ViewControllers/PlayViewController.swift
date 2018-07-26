@@ -2,12 +2,13 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
-    var deck = MainUseCase.shared
+    var game = MainUseCase.shared
     
     @IBOutlet weak var cardCounterLabel: UILabel!
+    @IBOutlet weak var userLabel: UILabel!
     
     var cardsInDeck: Int {
-        return deck.countCards
+        return game.countCards
     }
     
     var cardsCounter: String {
@@ -17,6 +18,12 @@ class PlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Play"
+        
+        game.auth {
+            if let user = self.game.user {
+                self.userLabel.text = user.uid
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
