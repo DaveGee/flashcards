@@ -8,12 +8,9 @@ class FirestoreDB: FirestoreGateway {
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
-                let cards: [Card] = querySnapshot!.documents.map { document in
-                    let cardDict = document.data()
-                    return Card(
-                        recto: cardDict["recto"] as! String,
-                        verso: cardDict["verso"] as! String,
-                        owner: cardDict["owner"] as! String?)
+                let cards: [Card] = querySnapshot!.documents.compactMap {
+                    let cardDict = $0.data()
+                    return Card(cardDict)
                 }
                 completion(cards)
             }
@@ -21,8 +18,7 @@ class FirestoreDB: FirestoreGateway {
     }
     
     func save(card: Card, completion: @escaping () -> Void) {
-        var ref: DocumentReference? = nil
-        ref = db.collection("cards").addDocument(data: [
+        _ = db.collection("cards").addDocument(data: [
             "recto": card.recto,
             "verso": card.verso,
             "user": card.owner!,
@@ -30,8 +26,6 @@ class FirestoreDB: FirestoreGateway {
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
             }
             completion()
         }

@@ -1,6 +1,5 @@
 enum DeckError: Error {
-    case emptyDeck
-    case noUser
+    case invalidUser
 }
 
 class MainUseCase {
@@ -24,7 +23,7 @@ class MainUseCase {
     
     func createCard(recto: String, verso: String, completion: @escaping () -> Void) throws {
         guard let user = self.user else {
-            throw DeckError.noUser
+            throw DeckError.invalidUser
         }
         
         let card = Card(recto: recto, verso: verso, owner: user.uid)

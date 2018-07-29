@@ -37,7 +37,6 @@ class NewCardTests: XCTestCase {
         
         viewController.deck.auth {
             try! self.viewController.save()
-            
             XCTAssertEqual(self.viewController.deck.countCards, 1)
         }
         
@@ -47,7 +46,7 @@ class NewCardTests: XCTestCase {
     func testThrowsErrorOnSave() {
         viewController.deck.authProxy = FailAuthStub()
         XCTAssertThrowsError(try viewController.save()) { (error) in
-            XCTAssertEqual(error as! DeckError, DeckError.noUser)
+            XCTAssertEqual(error as! DeckError, DeckError.invalidUser)
         }   
     }
     

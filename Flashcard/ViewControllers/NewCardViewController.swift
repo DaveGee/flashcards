@@ -40,10 +40,10 @@ class NewCardViewController: UIViewController, UITextViewDelegate {
         do {
             saveError = nil
             try save()
+            _ = navigationController?.popToRootViewController(animated: true)
         } catch {
             saveError = error
         }
-        _ = navigationController?.popToRootViewController(animated: true)
     }
     
     @objc func keyboardWillShow(notification: NSNotification){
@@ -57,7 +57,6 @@ class NewCardViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func keyboardWillHide(notification: NSNotification){
-        
         let contentInset: UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
     }
