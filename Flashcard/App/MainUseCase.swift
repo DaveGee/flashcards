@@ -1,11 +1,18 @@
 enum DeckError: Error {
     case emptyDeck
+    case noUser
 }
 
 class MainUseCase {
     static var shared = MainUseCase()
     
+    convenience init(user: User?) {
+        self.init()
+        self.user = user
+    }
+    
     lazy var authProxy: AuthGateway = AuthGatewayFirebase()
+    lazy var storeProxy: FirestoreGateway = FirestoreDB()
     
     private(set) var user: User? = nil
     
@@ -15,25 +22,34 @@ class MainUseCase {
         return deck.count
     }
     
-    func add(card: Card) {
-        deck.append(card)
+    func createCard(recto: String, verso: String, completion: @escaping () -> Void) throws {
+        guard let user = self.user else {
+            throw DeckError.noUser
+        }
+        
+        let card = Card(recto: recto, verso: verso, owner: user.uid)
+        
+        storeProxy.save(card: card) {
+            self.loadCards {
+                completion()
+            }
+        }
     }
     
     func cards() -> [Card] {
         return deck
     }
     
-    func draw() throws -> Card {
-        if deck.count <= 0 {
-            throw DeckError.emptyDeck
-        }
-        
-        return deck[0]
-    }
-    
     func auth(completion: @escaping () -> Void) {
         authProxy.authAnonymously { user in
             self.user = user
+            completion()
+        }
+    }
+    
+    func loadCards(completion: @escaping () -> Void) {
+        storeProxy.fetchCards { (cards) in
+            self.deck = cards
             completion()
         }
     }

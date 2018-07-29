@@ -28,6 +28,8 @@ class PlayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cardCounterLabel.text = cardsCounter
+        game.loadCards {
+            self.cardCounterLabel.text = self.cardsCounter
+        }
     }
 }

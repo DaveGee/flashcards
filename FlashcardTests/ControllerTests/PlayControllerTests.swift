@@ -14,6 +14,7 @@ class PlayControllerTests: XCTestCase {
         
         XCTAssertNotNil(viewController.view)
         viewController.game = MainUseCase()
+        viewController.game.storeProxy = FirestoreStub()
     }
     
     func testTitle() {
@@ -21,25 +22,29 @@ class PlayControllerTests: XCTestCase {
     }
     
     func testHas0CardsInitially() {
-        XCTAssert(viewController.cardsInDeck == 0)
+        XCTAssertEqual(viewController.cardsInDeck, 0)
     }
     
     func testCanCountCardsInDeck() {
         addCardToDeck()
-        XCTAssert(viewController.cardsInDeck == 1)
+        XCTAssertEqual(viewController.cardsInDeck, 1)
     }
     
     func testCanDisplayNumberOfCards() {
-        XCTAssert(viewController.cardsCounter == "0 cards")
+        XCTAssertEqual(viewController.cardsCounter, "0 cards")
         
         addCardToDeck()
-        XCTAssert(viewController.cardsCounter == "1 card")
+        XCTAssertEqual(viewController.cardsCounter, "1 card")
         
         addCardToDeck()
-        XCTAssert(viewController.cardsCounter == "2 cards")
+        XCTAssertEqual(viewController.cardsCounter, "2 cards")
     }
     
     func addCardToDeck() {
-        viewController.game.add(card: Card(recto: "recto", verso: "verso"))
+        var cards = viewController.game.cards()
+        cards.append(Card(recto: "recto", verso: "verso", owner: "0"))
+        let store = FirestoreStub(cards: cards)
+        viewController.game.storeProxy = store
+        viewController.game.loadCards {}
     }
 }

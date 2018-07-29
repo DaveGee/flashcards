@@ -4,7 +4,6 @@ import XCTest
 class CardTests: XCTestCase {
     
     func testInitCardWith2Langs() {
-        _ = Card(recto: "Français", verso: "Francuski")
+        _ = Card(recto: "Français", verso: "Francuski", owner: "owner")
     }
-    
 }

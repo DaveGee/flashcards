@@ -13,7 +13,13 @@ class NewCardTests: XCTestCase {
         UIApplication.shared.keyWindow!.rootViewController = viewController
         
         XCTAssertNotNil(viewController.view)
-        viewController.deck = MainUseCase()
+        mockUseCase(user: nil)
+    }
+    
+    func mockUseCase(user: User?) {
+        viewController.deck = MainUseCase(user: user)
+        viewController.deck.authProxy = AnonymousAuthStub()
+        viewController.deck.storeProxy = FirestoreStub()
     }
     
     func testTitle() {
@@ -25,20 +31,29 @@ class NewCardTests: XCTestCase {
     }
     
     func testCanAddNewCard() {
-        let card = Card(recto: "recto", verso: "verso")
-        viewController.save(card: card)
-        
-        XCTAssert(viewController.deck.countCards == 1)
-    }
-    
-    func testCreatesTheCardWithTheRightValues() {
+        mockUseCase(user: User(uid: "test"))
         viewController.recto.text = "recto"
         viewController.verso.text = "verso"
         
+        viewController.deck.auth {
+            try! self.viewController.save()
+            
+            XCTAssertEqual(self.viewController.deck.countCards, 1)
+        }
+        
+        
+    }
+    
+    func testThrowsErrorOnSave() {
+        viewController.deck.authProxy = FailAuthStub()
+        XCTAssertThrowsError(try viewController.save()) { (error) in
+            XCTAssertEqual(error as! DeckError, DeckError.noUser)
+        }   
+    }
+    
+    func testHandlesCreationError() {
+        viewController.deck.authProxy = FailAuthStub()
         viewController.saveTapped(self)
-        XCTAssert(viewController.deck.countCards == 1)
-        let card = try! viewController.deck.draw()
-        XCTAssert(card.recto == "recto")
-        XCTAssert(card.verso == "verso")
+        XCTAssertNotNil(viewController.saveError)
     }
 }

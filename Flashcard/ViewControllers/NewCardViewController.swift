@@ -3,6 +3,8 @@ import UIKit
 class NewCardViewController: UIViewController, UITextViewDelegate {
     
     var deck = MainUseCase.shared
+    
+    var saveError: Error? = nil
 
     @IBOutlet weak var recto: UITextView!
     @IBOutlet weak var verso: UITextView!
@@ -24,8 +26,8 @@ class NewCardViewController: UIViewController, UITextViewDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func save(card: Card) {
-        deck.add(card: card)
+    func save() throws {
+        try deck.createCard(recto: recto.text, verso: verso.text) {}
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -35,7 +37,12 @@ class NewCardViewController: UIViewController, UITextViewDelegate {
     
     
     @IBAction func saveTapped(_ sender: Any) {
-        save(card: Card(recto: recto.text, verso: verso.text))
+        do {
+            saveError = nil
+            try save()
+        } catch {
+            saveError = error
+        }
         _ = navigationController?.popToRootViewController(animated: true)
     }
     

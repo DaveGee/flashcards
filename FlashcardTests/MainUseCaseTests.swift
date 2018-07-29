@@ -4,48 +4,15 @@ import XCTest
 class MainUseCaseTests: XCTestCase {
     
     var sut: MainUseCase!
-    var card: Card!
     
     override func setUp() {
         sut = MainUseCase()
         sut.authProxy = AnonymousAuthStub()
-        
-        card = Card(recto: "recto", verso: "verso")
+        sut.storeProxy = FirestoreStub()
     }
     
     func testHas0CardsInitially() {
-        XCTAssert(sut.countCards == 0)
-    }
-    
-    func testCanAddACard() {
-        sut.add(card: card)
-        
-        XCTAssert(sut.countCards == 1)
-    }
-    
-    func testRemembersCardsAdded() {
-        let secondCard = Card(recto: "2", verso: "2")
-        sut.add(card: card)
-        sut.add(card: secondCard)
-        
-        let cards = sut.cards()
-        
-        XCTAssert(sut.countCards == 2)
-        XCTAssert(cards.count == 2)
-        XCTAssert(cards.contains(card))
-        XCTAssert(cards.contains(secondCard))
-    }
-    
-    func testManagerCannotDrawFromEmptyDeck() {
-        XCTAssertThrowsError(try sut.draw()) { (error) in
-            XCTAssertEqual(error as? DeckError, DeckError.emptyDeck)
-        }
-    }
-    
-    func testCanDrawCard() {
-        sut.add(card: card)
-        
-        XCTAssertNotNil(try sut.draw())
+        XCTAssertEqual(sut.countCards, 0)
     }
     
     func testHasSharedInstance() {
@@ -62,7 +29,7 @@ class MainUseCaseTests: XCTestCase {
                 return
             }
             XCTAssertTrue(user.isAnonymous)
-            XCTAssert(user.uid == "anonymousUserId")
+            XCTAssertEqual(user.uid, "anonymousUserId")
             loginExpectation.fulfill()
         }
         
@@ -80,7 +47,59 @@ class MainUseCaseTests: XCTestCase {
         
         waitForExpectations(timeout: 0.3, handler: nil)
     }
+    
+    func testGetsSomeCards() {
+        let cardExpectations = expectation(description: "Cards")
+        let remoteCards = [Card(recto: "1", verso: "1", owner: "o"), Card(recto: "2", verso: "2", owner: "0")]
+        sut.storeProxy = FirestoreStub(cards: remoteCards)
+        
+        sut.loadCards {
+            let cards = self.sut.cards()
+            XCTAssertEqual(cards.count, remoteCards.count)
+            cardExpectations.fulfill()
+        }
+        
+        waitForExpectations(timeout: 0.3, handler: nil)
+    }
+    
+    func testCannotSaveCardWithoutLogin() {
+        let saveExpectation = expectation(description: "Saved")
+        saveExpectation.isInverted = true
+        
+        let stub = FirestoreStub()
+        sut.storeProxy = stub
+        
+        XCTAssertThrowsError(
+            try sut.createCard(recto: "r", verso: "v") {}
+        )
+        
+        waitForExpectations(timeout: 0.3, handler: nil)
+    }
+    
+    func testSaveCardToTheCloud() {
+        let saveExpectation = expectation(description: "Saved")
+        let stub = FirestoreStub()
+        sut.storeProxy = stub
+        sut.auth {}
+        
+        do {
+            try sut.createCard(recto: "r", verso: "v") {
+                XCTAssertNotNil(stub.lastSavedCard)
+                let cards = self.sut.cards()
+                XCTAssertEqual(cards.count, 1)
+                XCTAssertEqual(cards[0].recto, "r")
+                XCTAssertEqual(cards[0].owner, "anonymousUserId")
+                saveExpectation.fulfill()
+            }
+        } catch {
+            XCTFail()
+        }
+        
+        waitForExpectations(timeout: 0.3, handler: nil)
+    }
 }
+
+// --- STUBS
 
 class AnonymousAuthStub: AuthGateway {
     func authAnonymously(completion: @escaping (User?) -> Void) {
@@ -92,5 +111,30 @@ class AnonymousAuthStub: AuthGateway {
 class FailAuthStub: AuthGateway {
     func authAnonymously(completion: @escaping (User?) -> Void) {
         completion(nil)
+    }
+}
+
+class FirestoreStub: FirestoreGateway {
+    var cards: [Card]
+    private(set) var lastSavedCard: Card? = nil
+    
+    convenience init() {
+        self.init(cards: [Card]())
+    }
+    
+    init(cards: [Card]) {
+        self.cards = cards
+    }
+    
+    func fetchCards(completion: @escaping ([Card]) -> Void) {
+        completion(self.cards)
+    }
+    
+    func save(card: Card, completion: @escaping () -> Void) {
+        self.lastSavedCard = card
+        self.fetchCards { _ in
+            self.cards.append(card)
+            completion()
+        }
     }
 }
