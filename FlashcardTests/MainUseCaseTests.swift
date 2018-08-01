@@ -97,6 +97,75 @@ class MainUseCaseTests: XCTestCase {
         
         waitForExpectations(timeout: 0.3, handler: nil)
     }
+    
+    func testDrawFromEmptyDeckDontFail() {
+        sut.auth {}
+        
+        let card = try! sut.drawNext()
+        XCTAssertNil(card)
+    }
+    
+    func testDrawWithoutAuthThrows() {
+        XCTAssertThrowsError(try sut.drawNext()) { (error) in
+            XCTAssertEqual(error as! DeckError, DeckError.invalidUser)
+        }
+    }
+    
+    func testDraw1From1CardDeck() {
+        sut.auth {}
+        
+        addCardsToStore()
+        guard let drawn = try! self.sut.drawNext() else {
+            XCTFail()
+            return
+        }
+        
+        XCTAssertNotNil(drawn)
+        XCTAssertEqual(drawn.recto, "0")
+        XCTAssertEqual(drawn.verso, "0")
+    }
+    
+    func testDrawIncrementsCardStat() {
+        sut.auth {}
+        
+        addCardsToStore()
+        XCTAssertEqual(sut.cards()[0].stat(.drawn), 0)
+        
+        let firstDraw = try! self.sut.drawNext()
+        XCTAssertEqual(firstDraw?.stat(.drawn), 1)
+        
+        let secondDraw = try! self.sut.drawNext()
+        XCTAssertEqual(secondDraw?.stat(.drawn), 2)
+    }
+    
+    func testDrawsAllCardUniformly() {
+        sut.auth {}
+        addCardsToStore(num: 2)
+        
+        let result = (1...10).reduce([String: Int]()) { (dict, i) in
+            var dict = dict
+            let card = try! self.sut.drawNext()
+            let cardLabel = card?.recto ?? "nil"
+            dict[cardLabel, default: 0] += 1
+            return dict
+        }
+        
+        XCTAssertNil(result["nil"])
+        XCTAssertEqual(result["0"], result["1"])
+    }
+    
+    func addCardsToStore(num: Int = 1) {
+        let group = DispatchGroup()
+        
+        for i in 0..<num {
+            group.enter()
+            try! sut.createCard(recto: "\(i)", verso: "\(i)") {
+                group.leave()
+            }
+        }
+        
+        group.wait()
+    }
 }
 
 // --- STUBS

@@ -52,4 +52,25 @@ class MainUseCase {
             completion()
         }
     }
+    
+    func drawNext() throws -> Card? {
+        guard self.user != nil else {
+            throw DeckError.invalidUser
+        }
+        
+        if countCards == 0 {
+            return nil
+        }
+        
+        if let drawn = getLessDrawn() {
+            drawn.updateStat(.drawn)
+            return drawn
+        } else {
+            return nil
+        }
+    }
+    
+    private func getLessDrawn() -> Card? {
+        return deck.min { $0.stat(.drawn) < $1.stat(.drawn) }
+    }
 }
