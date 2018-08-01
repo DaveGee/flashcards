@@ -15,6 +15,7 @@ class PlayControllerTests: XCTestCase {
         XCTAssertNotNil(viewController.view)
         viewController.game = MainUseCase()
         viewController.game.storeProxy = FirestoreStub()
+        viewController.game.authProxy = AnonymousAuthStub()
     }
     
     func testTitle() {
@@ -38,6 +39,17 @@ class PlayControllerTests: XCTestCase {
         
         addCardToDeck()
         XCTAssertEqual(viewController.cardsCounter, "2 cards")
+    }
+    
+    func testCanDrawCard() {
+        addCardToDeck()
+        addCardToDeck()
+        
+        viewController.viewDidLoad()
+        
+        viewController.drawCard()
+        XCTAssertEqual(viewController.guess, "recto")
+        XCTAssertEqual(viewController.statsDisplay, "1 draw")
     }
     
     func addCardToDeck() {

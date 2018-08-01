@@ -40,17 +40,17 @@ class CardTests: XCTestCase {
         XCTAssertEqual(card?.recto, "xxx")
         XCTAssertEqual(card?.verso, "yyy")
         XCTAssertEqual(card?.owner, "o")
-        XCTAssertEqual(card?.stat(.drawn), 8)
+        XCTAssertEqual(card?.stat(.draw), 8)
     }
     
     func testCardHasDrawCounterTo0() {
         let card = Card(recto: "recto", verso: "verso", owner: "o")
-        XCTAssertEqual(card.stat(.drawn), 0)
+        XCTAssertEqual(card.stat(.draw), 0)
     }
     
     func testCardTracksDraws() {
         let card = Card(recto: "recto", verso: "verso", owner: "o")
-        card.updateStat(.drawn)
-        XCTAssertEqual(card.stat(.drawn), 1)
+        card.updateStat(.draw)
+        XCTAssertEqual(card.stat(.draw), 1)
     }
 }

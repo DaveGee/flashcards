@@ -63,7 +63,7 @@ class MainUseCase {
         }
         
         if let drawn = getLessDrawn() {
-            drawn.updateStat(.drawn)
+            drawn.updateStat(.draw)
             return drawn
         } else {
             return nil
@@ -71,6 +71,6 @@ class MainUseCase {
     }
     
     private func getLessDrawn() -> Card? {
-        return deck.min { $0.stat(.drawn) < $1.stat(.drawn) }
+        return deck.min { $0.stat(.draw) < $1.stat(.draw) }
     }
 }

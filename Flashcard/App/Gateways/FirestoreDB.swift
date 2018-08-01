@@ -23,7 +23,7 @@ class FirestoreDB: FirestoreGateway {
             "verso": card.verso,
             "user": card.owner!,
             "created_at": Formatter.iso8601.string(from: card.createdAt),
-            "drawn_count": card.stat(.drawn)
+            "drawn_count": card.stat(.draw)
         ]) { err in
             if let err = err {
                 print("Error adding document: \(err)")

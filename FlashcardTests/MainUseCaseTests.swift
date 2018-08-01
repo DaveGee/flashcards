@@ -129,13 +129,13 @@ class MainUseCaseTests: XCTestCase {
         sut.auth {}
         
         addCardsToStore()
-        XCTAssertEqual(sut.cards()[0].stat(.drawn), 0)
+        XCTAssertEqual(sut.cards()[0].stat(.draw), 0)
         
         let firstDraw = try! self.sut.drawNext()
-        XCTAssertEqual(firstDraw?.stat(.drawn), 1)
+        XCTAssertEqual(firstDraw?.stat(.draw), 1)
         
         let secondDraw = try! self.sut.drawNext()
-        XCTAssertEqual(secondDraw?.stat(.drawn), 2)
+        XCTAssertEqual(secondDraw?.stat(.draw), 2)
     }
     
     func testDrawsAllCardUniformly() {

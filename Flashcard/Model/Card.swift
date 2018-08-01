@@ -41,19 +41,19 @@ extension Card: Equatable {
 }
 
 enum CardStat {
-    case drawn
+    case draw
 }
 
 extension Card {
     func stat(_ statType: CardStat) -> Int {
         switch statType {
-        case .drawn: return self.drawCount
+        case .draw: return self.drawCount
         }
     }
     
     func updateStat(_ statType: CardStat) {
         switch statType {
-        case .drawn: self.drawCount = self.drawCount + 1
+        case .draw: self.drawCount = self.drawCount + 1
         }
     }
 }
