@@ -140,6 +140,45 @@
                                 <color key="textColor" red="0.6588235294" green="0.85490196080000003" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Lorem ipsum dolor sit er elit lamet, " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LsA-7N-CKK">
+                                <rect key="frame" x="16" y="213" width="343" height="274"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.98039215690000003" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.27058823529999998" green="0.4823529412" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drawn : 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kz9-gc-HMb">
+                                <rect key="frame" x="16" y="184" width="339" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.6588235294" green="0.85490196080000003" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="omL-EQ-O9d">
+                                <rect key="frame" x="275" y="537" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="check"/>
+                                <connections>
+                                    <action selector="correctTouched:" destination="R2B-77-cLO" eventType="touchUpInside" id="53Q-0Q-ZMk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l02-fP-fgB">
+                                <rect key="frame" x="16" y="537" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="close"/>
+                                <connections>
+                                    <action selector="wrongTouched:" destination="R2B-77-cLO" eventType="touchUpInside" id="hrI-vz-axa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unZ-hi-qAb">
+                                <rect key="frame" x="147" y="537" width="80" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="view"/>
+                                <connections>
+                                    <action selector="seeTouched:" destination="R2B-77-cLO" eventType="touchUpInside" id="Qwe-nm-xBE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RHS-Xi-JrV"/>
@@ -154,6 +193,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cardCounterLabel" destination="Ldy-hJ-o1N" id="UcM-QK-qH7"/>
+                        <outlet property="cardFace" destination="LsA-7N-CKK" id="cWK-70-YqH"/>
+                        <outlet property="statsLabel" destination="kz9-gc-HMb" id="eSv-Ou-vIM"/>
                         <outlet property="userLabel" destination="7zY-kb-Vwy" id="Xph-JG-2Pt"/>
                     </connections>
                 </viewController>
@@ -181,4 +222,9 @@
             <point key="canvasLocation" x="-764" y="32.833583208395808"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="check" width="512" height="512"/>
+        <image name="close" width="512" height="512"/>
+        <image name="view" width="512" height="512"/>
+    </resources>
 </document>

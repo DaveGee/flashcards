@@ -6,6 +6,8 @@ class PlayViewController: UIViewController {
     
     @IBOutlet weak var cardCounterLabel: UILabel!
     @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var statsLabel: UILabel!
+    @IBOutlet weak var cardFace: UITextView!
     
     var cardsInDeck: Int {
         return game.countCards
@@ -31,5 +33,11 @@ class PlayViewController: UIViewController {
         game.loadCards {
             self.cardCounterLabel.text = self.cardsCounter
         }
+    }
+    @IBAction func correctTouched(_ sender: Any) {
+    }
+    @IBAction func wrongTouched(_ sender: Any) {
+    }
+    @IBAction func seeTouched(_ sender: Any) {
     }
 }

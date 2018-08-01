@@ -12,6 +12,7 @@
 		6367DAC5210A6F7900E50E73 /* FirestoreGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6367DAC4210A6F7900E50E73 /* FirestoreGateway.swift */; };
 		6367DAC7210A719200E50E73 /* FirestoreDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6367DAC6210A719200E50E73 /* FirestoreDB.swift */; };
 		6367DACB210DF5EC00E50E73 /* Formatter+iso8601.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6367DACA210DF5EC00E50E73 /* Formatter+iso8601.swift */; };
+		6367DAD0211211A600E50E73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6367DACF211211A500E50E73 /* Assets.xcassets */; };
 		6388255E21067C03005B2ACA /* MainUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388255D21067C03005B2ACA /* MainUseCase.swift */; };
 		6388256221073014005B2ACA /* MainUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388256121073014005B2ACA /* MainUseCaseTests.swift */; };
 		6388256421074AEA005B2ACA /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6388256321074AEA005B2ACA /* PlayViewController.swift */; };
@@ -26,7 +27,6 @@
 		63B1726021066A0200EB976B /* NewCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B1725E21066A0200EB976B /* NewCardViewController.swift */; };
 		63BD233D20FE5AFD0073FD3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */; };
 		63BD234220FE5AFD0073FD3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234020FE5AFD0073FD3A /* Main.storyboard */; };
-		63BD234420FE5AFE0073FD3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234320FE5AFE0073FD3A /* Assets.xcassets */; };
 		63BD234720FE5AFE0073FD3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BD234520FE5AFE0073FD3A /* LaunchScreen.storyboard */; };
 		63BD236B20FE5B630073FD3A /* CardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD236A20FE5B630073FD3A /* CardTests.swift */; };
 		63BD236E20FE5CB50073FD3A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BD236D20FE5CB50073FD3A /* Card.swift */; };
@@ -62,6 +62,7 @@
 		6367DAC4210A6F7900E50E73 /* FirestoreGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreGateway.swift; sourceTree = "<group>"; };
 		6367DAC6210A719200E50E73 /* FirestoreDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDB.swift; sourceTree = "<group>"; };
 		6367DACA210DF5EC00E50E73 /* Formatter+iso8601.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Formatter+iso8601.swift"; sourceTree = "<group>"; };
+		6367DACF211211A500E50E73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6388255D21067C03005B2ACA /* MainUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUseCase.swift; sourceTree = "<group>"; };
 		6388256121073014005B2ACA /* MainUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUseCaseTests.swift; sourceTree = "<group>"; };
 		6388256321074AEA005B2ACA /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		63BD233920FE5AFD0073FD3A /* Flashcard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashcard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63BD234120FE5AFD0073FD3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		63BD234320FE5AFE0073FD3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63BD234620FE5AFE0073FD3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63BD234820FE5AFE0073FD3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63BD234D20FE5AFE0073FD3A /* FlashcardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +224,7 @@
 				63BD236C20FE5C9D0073FD3A /* Model */,
 				63BD233C20FE5AFD0073FD3A /* AppDelegate.swift */,
 				63BD234020FE5AFD0073FD3A /* Main.storyboard */,
-				63BD234320FE5AFE0073FD3A /* Assets.xcassets */,
+				6367DACF211211A500E50E73 /* Assets.xcassets */,
 				63BD234520FE5AFE0073FD3A /* LaunchScreen.storyboard */,
 				63BD234820FE5AFE0073FD3A /* Info.plist */,
 				6316FF642107C8550057E845 /* GoogleService-Info.plist */,
@@ -394,7 +394,7 @@
 			files = (
 				63BD234720FE5AFE0073FD3A /* LaunchScreen.storyboard in Resources */,
 				6316FF652107C8550057E845 /* GoogleService-Info.plist in Resources */,
-				63BD234420FE5AFE0073FD3A /* Assets.xcassets in Resources */,
+				6367DAD0211211A600E50E73 /* Assets.xcassets in Resources */,
 				63BD234220FE5AFD0073FD3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
