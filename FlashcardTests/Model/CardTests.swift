@@ -9,25 +9,26 @@ class CardTests: XCTestCase {
     
     func testCantInitFromEmptyDict() {
         let dict: [String: Any?] = [String: Any?]()
-        let card = Card(dict)
+        let card = Card("1", dict)
         
         XCTAssertNil(card)
     }
     
     func testCantInitIfMissingVerso() {
         let dict = ["recto": "x"]
-        let card = Card(dict)
+        let card = Card("2", dict)
         
         XCTAssertNil(card)
     }
     
     func testCantInitIfVersoIsNil() {
         let dict = ["recto": "x", "verso": nil]
-        let card = Card(dict)
+        let card = Card("1", dict)
         XCTAssertNil(card)
     }
     
     func testInitFromDict() {
+        let id = "id"
         let dict: [String: Any] = [
             "recto": "xxx",
             "verso": "yyy",
@@ -35,12 +36,13 @@ class CardTests: XCTestCase {
             "created_at": "2018-07-29T13:45:44.112Z",
             "draw_count": 8
         ]
-        let card = Card(dict)
+        let card = Card(id, dict)
         XCTAssertNotNil(card)
         XCTAssertEqual(card?.recto, "xxx")
         XCTAssertEqual(card?.verso, "yyy")
         XCTAssertEqual(card?.owner, "o")
         XCTAssertEqual(card?.stat(.draw), 8)
+        XCTAssertEqual(card?.id, "id")
     }
     
     func testCardHasDrawCounterTo0() {

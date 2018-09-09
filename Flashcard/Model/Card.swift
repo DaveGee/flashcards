@@ -1,36 +1,63 @@
 import Foundation
 
 class Card {
-    let recto: String
-    let verso: String
-    let owner: String?
-    let createdAt: Date
-    
-    private var drawCount = 0
+    private(set) var id: String? = nil
 
-    init(recto: String, verso: String, owner: String?) {
-        self.recto = recto
-        self.verso = verso
-        self.owner = owner
-        self.createdAt = Date(timeIntervalSinceNow: 0)
+    private(set) var data: [String: Any?] = [:]
+
+    var recto: String {
+        return data[Prop.recto] as! String
+    }
+    var verso: String {
+        return data[Prop.verso] as! String
+    }
+    var owner: String? {
+        return data[Prop.user] as! String?
+    }
+    var createdAt: Date {
+        if let date = data[Prop.createdAt] as? String {
+            return Formatter.iso8601.date(from: date) ?? Date(timeIntervalSinceNow: 0)
+        } else {
+            return Date(timeIntervalSinceNow: 0)
+        }
     }
     
-    init?(_ dict: [String: Any?]) {
+    private var drawCount: Int {
+        get {
+            return data[Prop.drawCount] as? Int ?? 0
+        }
+        set(count) {
+            data[Prop.drawCount] = count
+        }
+    }
+
+    init(recto: String, verso: String, owner: String?) {
+        self.data[Prop.recto] = recto
+        self.data[Prop.verso] = verso
+        self.data[Prop.user] = owner
+        self.data[Prop.createdAt] = Formatter.iso8601.string(from: Date(timeIntervalSinceNow: 0))
+    }
+    
+    init?(_ id: String, _ dict: [String: Any?]) {
         guard
-            let recto = dict["recto"] as? String,
-            let verso = dict["verso"] as? String,
-            let owner = dict["user"] as? String,
-            let createdAt = dict["created_at"] as? String
+            dict[Prop.recto] as? String != nil,
+            dict[Prop.verso] as? String != nil,
+            dict[Prop.user] as? String != nil,
+            dict[Prop.createdAt] as? String != nil
         else {
             return nil
         }
-        
-        self.recto = recto
-        self.verso = verso
-        self.owner = owner
-        self.createdAt = Formatter.iso8601.date(from: createdAt) ?? Date(timeIntervalSinceNow: 0)
-        
-        self.drawCount = dict["draw_count"] as? Int ?? 0
+
+        self.id = id
+        self.data = dict
+    }
+
+    private enum Prop {
+        static let recto = "recto"
+        static let verso = "verso"
+        static let user = "user"
+        static let createdAt = "created_at"
+        static let drawCount = "draw_count"
     }
 }
 

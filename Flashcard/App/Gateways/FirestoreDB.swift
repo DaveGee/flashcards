@@ -1,4 +1,5 @@
 import Firebase
+import FirebaseFirestore
 
 class FirestoreDB: FirestoreGateway {
     lazy var db: FirestoreProtocol = Firestore.firestore()
@@ -6,11 +7,11 @@ class FirestoreDB: FirestoreGateway {
     func fetchCards(completion: @escaping ([Card]) -> Void) {
         db.collection("cards").getDocuments { (querySnapshot, error) in
             if let error = error {
-                print("Error getting documents: \(error)")
+                print("Error getting cards: \(error)")
             } else {
                 let cards: [Card] = querySnapshot!.documents.compactMap {
                     let cardDict = $0.data()
-                    return Card(cardDict)
+                    return Card($0.documentID, cardDict)
                 }
                 completion(cards)
             }
@@ -18,19 +19,22 @@ class FirestoreDB: FirestoreGateway {
     }
     
     func save(card: Card, completion: @escaping () -> Void) {
-        _ = db.collection("cards").addDocument(data: [
-            "recto": card.recto,
-            "verso": card.verso,
-            "user": card.owner!,
-            "created_at": Formatter.iso8601.string(from: card.createdAt),
-            "drawn_count": card.stat(.draw)
-        ]) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
+        if card.id == nil {
+            _ = db.collection("cards").addDocument(data: card.data) { err in
+                if let err = err {
+                    print("Error adding document: \(err)")
+                }
+                completion()
             }
-            completion()
-        }
+        } else {
 
+            db.collection("cards").document(card.id!).setData(card.data) { err in
+                if let err = err {
+                    print("Error updating document: \(err)")
+                }
+                completion()
+            }
+        }
     }
 }
 

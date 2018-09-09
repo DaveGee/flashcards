@@ -34,6 +34,12 @@ class MainUseCase {
             }
         }
     }
+
+    func update(card: Card) {
+        if card.id != nil {
+            storeProxy.save(card: card) {}
+        }
+    }
     
     func cards() -> [Card] {
         return deck
@@ -64,6 +70,7 @@ class MainUseCase {
         
         if let drawn = getLessDrawn() {
             drawn.updateStat(.draw)
+            update(card: drawn)
             return drawn
         } else {
             return nil
